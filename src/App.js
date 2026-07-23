@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       t: 5400,
+      initialT: 5400,
       paused: true,
       fullscreen: false,
       adjusting: false,
@@ -67,16 +68,19 @@ class App extends Component {
 
   resetTimer = () => {
     this.setState({
-      t: 0,
+      t: 5400,
+      initialT: 5400,
       paused: true
     });
   }
 
   pauseTimer = () => {
-    this.setState({
-      paused: !this.state.paused,
+    const wasPaused = this.state.paused;
+    this.setState((prevState) => ({
+      paused: !prevState.paused,
       editing: false,
-    })
+      initialT: wasPaused ? prevState.t : prevState.initialT,
+    }))
   }
 
   toggleEditing = () => {
@@ -170,12 +174,17 @@ class App extends Component {
   }
 
   render() {
-    const { t, paused, editing, showCursor, fullscreen } = this.state;
+    const { t, initialT, paused, editing, showCursor, fullscreen } = this.state;
     const second = parseInt(t % 60);
     const minute = parseInt((t / 60) % 60);
     const hour = parseInt(t / 3600);
+    const percent = initialT > 0 ? (t / initialT) * 100 : 0;
+    const radius = 70;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference * (1 - percent / 100);
     return (
       <div className="App">
+        <div className="timer-label">Time left:</div>
         <div
           className={clsx('clock', { 'show-cursor': showCursor })}
           onDoubleClick={() => this.toggleFullScreen()}
@@ -185,6 +194,20 @@ class App extends Component {
           <span className={clsx('time minute', { editing: editing === 'minute' })}>{pad(minute)}</span>
           :
           <span className={clsx('time second', { editing: editing === 'second' })}>{pad(second)}</span>
+        </div>
+        <div className="progress-ring-container">
+          <svg className="progress-ring" viewBox="0 0 180 180">
+            <circle className="progress-ring-bg" cx="90" cy="90" r={radius} />
+            <circle
+              className="progress-ring-fill"
+              cx="90"
+              cy="90"
+              r={radius}
+              strokeDasharray={circumference}
+              strokeDashoffset={offset}
+            />
+            <text className="progress-ring-text" x="90" y="90">{Math.round(percent)}%</text>
+          </svg>
         </div>
         <ul className="tips">
           <li>

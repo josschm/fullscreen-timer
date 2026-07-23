@@ -45,6 +45,16 @@ body {
   src: url("/ds-digit.ttf");
 }
 
+.timer-label {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -180%);
+  font-size: 20vw;
+  color: white;
+  font-family: Geneva, Tahoma, sans-serif;
+  white-space: nowrap;
+}
 .clock {
   position: fixed;
   left: 50%;
@@ -89,4 +99,41 @@ body {
   cursor: pointer;
   font-size: inherit;
   padding: 0;
+}
+
+.progress-ring-container {
+  position: fixed;
+  right: 10%;
+  bottom: 20px;
+  transform: translateX(50%);
+}
+
+.progress-ring {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+  fill: none;
+  stroke: #333;
+  stroke-width: 12;
+}
+
+.progress-ring-fill {
+  fill: none;
+  stroke: #4caf50;
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.progress-ring-text {
+  fill: white;
+  font-size: 22px;
+  font-family: Geneva, Tahoma, sans-serif;
+  text-anchor: middle;
+  dominant-baseline: central;
+  transform: rotate(90deg);
+  transform-origin: 90px 90px;
 }
