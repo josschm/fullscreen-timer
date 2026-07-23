@@ -10,9 +10,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      t: 0,
+      t: 5400,
       paused: true,
-      mode: 'stopwatch',
+      mode: 'countdown',
       fullscreen: false,
       adjusting: false,
       editing: null, // minute, second, null
@@ -40,7 +40,7 @@ class App extends Component {
     }
     if (paused) return;
     this.setState((prevState) => {
-      const t = prevState.t + (mode === 'countdown' ? -1 : 1) * 0.5;
+      const t = prevState.t - 0.5;
       if (t <= 0) {
         return {
           t: 0,
@@ -71,12 +71,6 @@ class App extends Component {
       t: 0,
       paused: true
     });
-  }
-
-  switchMode = (mode) => {
-    this.setState({
-      mode: mode || (this.state.mode === 'stopwatch' ? 'countdown' : 'stopwatch'),
-    })
   }
 
   pauseTimer = () => {
@@ -159,10 +153,6 @@ class App extends Component {
       case 'r':
         this.resetTimer();
         break;
-      case 'S':
-      case 's':
-        this.switchMode();
-        break;
       case 'ArrowUp':
       case 'ArrowDown':
       case 'ArrowLeft':
@@ -215,15 +205,6 @@ class App extends Component {
             <button onClick={this.resetTimer}>R</button>
             -
             <span className="tip">reset timer</span>
-          </li>
-          <li>
-            <button onClick={this.switchMode}>S</button>
-            -
-            {mode === 'countdown' ?
-              <span className="tip"><span>countdown ✓</span> or <button onClick={() => this.switchMode('stopwatch')}>stopwatch</button></span>
-              :
-              <span className="tip"><button onClick={() => this.switchMode('countdown')}>countdown</button> or <span>stopwatch ✓</span></span>
-            }
           </li>
           <li>
             <button onClick={this.pauseTimer}>Space</button>
