@@ -61,7 +61,7 @@ body {
 .tips {
   position: fixed;
   left: 50px;
-  bottom: 20px;
+  bottom: 10%;
   transform: translateX(-50%);
   color: #666;
   line-height: 2;
