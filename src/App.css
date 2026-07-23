@@ -48,9 +48,9 @@ body {
 .timer-label {
   position: fixed;
   left: 50%;
-  top: 50%;
+  top: 45%;
   transform: translate(-50%, -180%);
-  font-size: 20vw;
+  font-size: 10vw;
   color: white;
   font-family: Geneva, Tahoma, sans-serif;
   white-space: nowrap;
