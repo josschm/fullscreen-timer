@@ -12,7 +12,6 @@ class App extends Component {
     this.state = {
       t: 5400,
       paused: true,
-      mode: 'countdown',
       fullscreen: false,
       adjusting: false,
       editing: null, // minute, second, null
