@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   tick() {
-    const { mode, paused, showCursor, editing } = this.state;
+    const { paused, showCursor, editing } = this.state;
     if (editing) {
       this.setState({ showCursor: !showCursor });
     }
@@ -170,7 +170,7 @@ class App extends Component {
   }
 
   render() {
-    const { t, paused, editing, mode, showCursor, fullscreen } = this.state;
+    const { t, paused, editing, showCursor, fullscreen } = this.state;
     const second = parseInt(t % 60);
     const minute = parseInt((t / 60) % 60);
     const hour = parseInt(t / 3600);
