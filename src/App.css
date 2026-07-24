@@ -109,28 +109,28 @@ body {
 }
 
 .progress-ring {
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
   transform: rotate(-90deg);
 }
 
 .progress-ring-bg {
   fill: none;
   stroke: #333;
-  stroke-width: 12;
+  stroke-width: 20;
 }
 
 .progress-ring-fill {
   fill: none;
   stroke: #4caf50;
-  stroke-width: 12;
+  stroke-width: 20;
   stroke-linecap: round;
   transition: stroke-dashoffset 0.3s ease;
 }
 
 .progress-ring-text {
   fill: white;
-  font-size: 22px;
+  font-size: 30px;
   font-family: Geneva, Tahoma, sans-serif;
   text-anchor: middle;
   dominant-baseline: central;
