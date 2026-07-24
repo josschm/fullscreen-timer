@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira:wght@400;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Saira+Mono:wght@400;600;700&display=swap');
 .App {
   text-align: center;
 }
@@ -49,7 +48,7 @@ body {
   transform: translate(-50%, -180%);
   font-size: 10vw;
   color: white;
-  font-family: 'Saira', sans-serif;
+  font-family: 'Saira Mono', monospace;
   white-space: nowrap;
 }
 .clock {
@@ -59,10 +58,10 @@ body {
   transform: translate(-50%, -50%);
   font-size: 25vw;
   color: white;
-  font-family: 'Saira', sans-serif;
+  font-family: 'Saira Mono', monospace;
 }
 .clock.show-cursor .time.editing {
-  background: #666;
+  background: #6f6f6e;
 }
 
 .tips {
@@ -70,7 +69,7 @@ body {
   left: 10%;
   bottom: 20px;
   transform: translateX(-50%);
-  color: #666;
+  color: #6f6f6e;
   line-height: 2;
 }
 .tips li {
@@ -82,7 +81,7 @@ body {
   font-size: 12px;
 }
 .tips li > button {
-  border: 2px solid #333;
+  border: 2px solid #6f6f6e;
   border-radius: 4px;
   padding: 0 4px;
   cursor: pointer;
@@ -128,7 +127,7 @@ body {
 .progress-ring-text {
   fill: white;
   font-size: 30px;
-  font-family: 'Saira', sans-serif;
+  font-family: 'Saira Mono', monospace;
   text-anchor: middle;
   dominant-baseline: central;
   transform: rotate(90deg);
