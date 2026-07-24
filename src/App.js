@@ -75,11 +75,9 @@ class App extends Component {
   }
 
   pauseTimer = () => {
-    const wasPaused = this.state.paused;
     this.setState((prevState) => ({
       paused: !prevState.paused,
       editing: false,
-      initialT: wasPaused ? prevState.t : prevState.initialT,
     }))
   }
 
@@ -111,6 +109,7 @@ class App extends Component {
         if (state.t < 0) {
           state.t = 0;
         }
+        state.initialT = state.t;
         break;
       case 'left':
         if (!state.editing) {
